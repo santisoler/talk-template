@@ -1,6 +1,6 @@
-# Template for creating slides using revealjs
+# Template for creating slides using reveal.js
 
-This template uses [revela.js](https://revealjs.com/) for creating nice looking
+This template uses [reveal.js](https://revealjs.com/) for creating nice looking
 slides by only editing a Markdown file, with some html syntax for adding some
 cool stuff, like columns, fade-in animations, footnotes and more.
 
@@ -11,7 +11,7 @@ The template contains the following files and directories:
 - `content.md`: Markdown file with the content of the slides.
 - `style.less`: define custom CSS classes using [Less](http://lesscss.org/).
 - `index.html`: HTML file that can be served to show the slides, also contains
-  the configurations for revealjs.
+  the configurations for reveal.js.
 
 The `pkg` directory contains all dependencies to run the website: reveal.js,
 fontawesome and less. Having these files in the same repository allows to
