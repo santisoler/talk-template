@@ -4,7 +4,29 @@
 
 ## [Santiago Soler](https://santisoler.github.io)
 
-*Affiliation, date, etc*
+[*CONICET, Argentina*](https://www.conicet.gov.ar/)
+<br>
+[*Instituto Geofísico y Sismológico Volponi, UNSJ, Argentina*](http://igsv.unsj.edu.ar/)
+<br>
+[*Computer-Oriented Geoscience Lab*](https://www.compgeolab.org/)
+
+<div class="container logos">
+<div class="logo">
+<a href="https://www.conicet.gov.ar/">
+<img src="images/logos/conicet.svg">
+</a>
+</div>
+<div class="logo">
+<a href="http://igsv.unsj.edu.ar/">
+<img src="images/logos/igsv.svg">
+</a>
+</div>
+<div class="logo">
+<a href="https://www.compgeolab.org/">
+<img src="images/logos/compgeolab.svg">
+</a>
+</div>
+</div>
 
 ---
 
@@ -18,11 +40,11 @@
 
 <div class="container">
 
-<div class="col-tiny">
+<div class="column">
 <img src="images/about.jpg" style="margin-top: 5%; border-radius: 50%; width: 80%;">
 </div>
 
-<div class="col-huge">
+<div class="col-2">
 <div class="centered">
 
 * Licenciado en Física (UNR)
@@ -42,13 +64,13 @@
 
 <div class="container">
 
-<div class="col-left fragment fade-in">
+<div class="column fragment fade-in">
 
 First element
 
 </div>
 
-<div class="col-right fragment fade-in">
+<div class="column fragment fade-in">
 
 Second element
 
@@ -58,11 +80,71 @@ Second element
 
 ---
 
+## Even on lists
+
+<ul>
+<li class="fragment fade-in">First element</li>
+<li class="fragment fade-in">Second element</li>
+<li class="fragment fade-in">Third element</li>
+</ul>
+
+---
+
+## Highlight current item on list
+
+<ol>
+<li class="fragment highlight-current-blue">First element</li>
+<li class="fragment highlight-current-blue">Second element</li>
+<li class="fragment highlight-current-blue">Third element</li>
+</ol>
+
+---
+
 # You can put footnotes
 
 <div class="bottom">
 
 https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black-hole/
+
+</div>
+
+---
+
+<!-- .slide: data-background-color="#FAFAFA" -->
+
+## You can change the background color
+
+---
+
+## Add quotes
+
+<blockquote>
+This is a quote
+</blockquote>
+
+---
+
+# Contacto
+
+<div>
+
+<ul class="fa-ul" style="">
+<li><i class="fa-li fa fa-envelope"></i>
+
+[santiago.r.soler@gmail.com](mailto:santiago.r.soler@gmail.com)
+
+</li>
+<li><i class="fa-li fab fa-twitter"></i>
+
+[@santirsoler](https://twitter.com/santirsoler)
+
+</li>
+<li><i class="fa-li fa fa-globe-americas"></i>
+
+[santisoler.github.io](https://santisoler.github.io)
+
+</li>
+</ul>
 
 </div>
 
@@ -77,3 +159,9 @@ https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black
 El contenido de esta presentación está disponible bajo
 
 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+
+---
+
+<!-- .slide: class="slide-title" -->
+
+# Muchas gracias
