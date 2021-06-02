@@ -2,7 +2,7 @@
 
 # Title
 
-## [Santiago Soler](https://santisoler.github.io)
+## [Santiago Soler](https://www.santisoler.com)
 
 [*CONICET, Argentina*](https://www.conicet.gov.ar/)
 <br>
@@ -141,7 +141,7 @@ This is a quote
 </li>
 <li><i class="fa-li fa fa-globe-americas"></i>
 
-[santisoler.github.io](https://santisoler.github.io)
+[www.santisoler.com](https://www.santisoler.com)
 
 </li>
 </ul>
