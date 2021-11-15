@@ -110,7 +110,7 @@ https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black
 
 ---
 
-<!-- .slide: data-background-color="#FAFAFA" -->
+<!-- .slide: data-background-color="#eee" -->
 
 ## You can change the background color
 

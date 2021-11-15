@@ -1,45 +1,25 @@
-@basefontsize: 3.2rem;
-@lightcolor: #ffffff;
-@midgreycolor: #252525;
-@darkcolor: #191919;
-@strongcolor: #58b792;
+/* These fontsizes are the same ones defined in the onedark.css theme */
+/* The basefontsize represents the fontsize as the main font in onedark.css */
+@basefontsize: 1em;
+@fontsizeheading1: 2.5em;
+@fontsizeheading2: 1.6em;
+@fontsizeheading3: 1.3em;
+@fontsizeheading4: 1.0em;
+
+/* Define some extra onedark colors */
+@lightcolor: #dcdfe4;
+@greencolor: #98c379;
+@redcolor: #e06c75;
+@yellowcolor: #e5c07b;
+@bluecolor: #61afef;
+
+/* ---------------------- */
+/* Configure reveal style */
+/* ---------------------- */
 
 .reveal {
-  font-size: @basefontsize;
-
-  h1 {
-    margin-bottom: 2% !important;
-  }
-  h3 {
-    text-transform: none;
-  }
-  p {
-    font-size: @basefontsize;
-  }
-  dl,
-  ul,
-  ol {
-    font-size: @basefontsize;
-    &.fa-ul {
-      list-style-type: none;
-    }
-  }
-  li,
-  dd {
-    margin-bottom: @basefontsize * 0.1;
-  }
-  dt,
-  dd {
-    display: block;
-    float: left;
-    /* margin-top: 20px; */
-  }
-  dt {
-    clear: both;
-  }
-
   strong {
-    color: @strongcolor;
+    color: @greencolor;
   }
 
   .print-pdf {
@@ -60,23 +40,10 @@
   // Class to put bottom text, like references, links, notes, etc.
   .bottom {
     p {
-      font-size: @basefontsize * 0.45 !important;
+      font-size: @basefontsize * 0.85 !important;
       text-align: left;
       align-self: flex-end;
       margin: 0;
-    }
-  }
-
-  // Quote boxes meant to be used with r-stack (optionally)
-  .quote {
-    & > p {
-      width: 100%;
-      background-color: @midgreycolor;
-      box-shadow: 5px 5px 10px #00000044;
-      border-radius: 15px;
-      padding: 3%;
-      font-size: @basefontsize * 0.8 !important;
-      line-height: @basefontsize * 1.3;
     }
   }
 
@@ -108,20 +75,18 @@
       color: @lightcolor;
     }
     h1 {
-      font-size: @basefontsize * 2;
-      line-height: @basefontsize * 2.2;
-      margin-top: 4%;
-      margin-bottom: 4%;
+      font-size: @fontsizeheading1 * 0.9;
+      line-height: @fontsizeheading1 * 0.4;
+      margin-bottom: @fontsizeheading1 * 0.3;
     }
     h2 {
-      font-size: @basefontsize * 1.4;
+      font-size: @fontsizeheading2 * 0.9;
       text-transform: none;
       font-weight: normal;
-      margin-bottom: 3%;
+      margin-bottom: @fontsizeheading1 * 0.3;
     }
     p {
-      margin-bottom: 2%;
-      font-size: @basefontsize * 0.65;
+      font-size: @basefontsize * 0.8;
     }
 
     .logos {
@@ -138,16 +103,7 @@
         max-height: 100px;
         margin: 0 auto;
       }
-      p {
-        font-size: 0.4 * @basefontsize;
-        padding: 0;
-        margin: 0;
-      }
     }
-  }
-
-  .slide-light {
-    color: @darkcolor;
   }
 
   .slide-license {
