@@ -1,7 +1,8 @@
-@basefontsize: 70px;
+@basefontsize: 3.2rem;
 @lightcolor: #ffffff;
 @midgreycolor: #252525;
 @darkcolor: #191919;
+@strongcolor: #58b792;
 
 .reveal {
   font-size: @basefontsize;
@@ -15,15 +16,30 @@
   p {
     font-size: @basefontsize;
   }
+  dl,
   ul,
   ol {
-    font-size: @basefontsize * 0.8;
+    font-size: @basefontsize;
     &.fa-ul {
       list-style-type: none;
     }
   }
-  li {
-    margin-bottom: 5%;
+  li,
+  dd {
+    margin-bottom: @basefontsize * 0.1;
+  }
+  dt,
+  dd {
+    display: block;
+    float: left;
+    /* margin-top: 20px; */
+  }
+  dt {
+    clear: both;
+  }
+
+  strong {
+    color: @strongcolor;
   }
 
   .print-pdf {
@@ -93,19 +109,19 @@
     }
     h1 {
       font-size: @basefontsize * 2;
-      line-height: @basefontsize * 2;
+      line-height: @basefontsize * 2.2;
       margin-top: 4%;
       margin-bottom: 4%;
     }
     h2 {
-      font-size: @basefontsize * 1.1;
+      font-size: @basefontsize * 1.4;
       text-transform: none;
       font-weight: normal;
       margin-bottom: 3%;
     }
     p {
       margin-bottom: 2%;
-      font-size: @basefontsize * 0.5;
+      font-size: @basefontsize * 0.65;
     }
 
     .logos {
