@@ -128,7 +128,7 @@ This is a quote
 
 <div>
 
-<ul class="fa-ul" style="">
+<ul class="fa-ul">
 <li><i class="fa-li fa fa-envelope"></i>
 
 [santiago.r.soler@gmail.com](mailto:santiago.r.soler@gmail.com)
