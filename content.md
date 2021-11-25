@@ -110,7 +110,7 @@ https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black
 
 ---
 
-<!-- .slide: data-background-color="#eee" -->
+<!-- .slide: data-background-color="#eceff4" -->
 
 ## You can change the background color
 
@@ -121,6 +121,20 @@ https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black
 <blockquote>
 This is a quote
 </blockquote>
+
+---
+
+## Add code
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = np.linspace(0, 10, 11)
+
+plt.plot(a, a ** 2)
+plt.show()
+```
 
 ---
 
