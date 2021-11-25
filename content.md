@@ -93,9 +93,9 @@ Second element
 ## Highlight current item on list
 
 <ol>
-<li class="fragment highlight-current-blue">First element</li>
-<li class="fragment highlight-current-blue">Second element</li>
-<li class="fragment highlight-current-blue">Third element</li>
+<li class="fragment highlight-current-green">First element</li>
+<li class="fragment highlight-current-green">Second element</li>
+<li class="fragment highlight-current-green">Third element</li>
 </ol>
 
 ---
@@ -170,8 +170,7 @@ plt.show()
 <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i>
 </p>
 
-El contenido de esta presentación está disponible bajo
-
+El contenido de esta presentación está disponible bajo <br>
 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
 ---
