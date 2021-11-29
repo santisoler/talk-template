@@ -3,7 +3,7 @@
  * Nord theme for reveal.js
  *
  */
-@import url(../pkg/reveal.js/fonts/source-sans-pro/source-sans-pro.css);
+@import url(../reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css);
 section.has-light-background,
 section.has-light-background h1,
 section.has-light-background h2,
