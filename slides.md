@@ -36,6 +36,12 @@
 
 ---
 
+# Include math and equations
+
+$$ E = mc^2 $$
+
+---
+
 # Do you want columns?
 
 <div class="container">
@@ -102,7 +108,11 @@ Second element
 
 # You can put footnotes
 
-<div class="bottom">
+<!-- Stretch to the end of the slide -->
+<div class="r-stretch">
+</div>
+
+<div class="footnote">
 
 https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black-hole/
 
