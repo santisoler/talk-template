@@ -1,3 +1,17 @@
+// Load own fonts
+// --------------
+@font-face {
+  font-family: Palatino;
+  src: url("./fonts/Palatino.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: Palatino;
+  src: url("./fonts/Palatino-bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
 // Define some variables for font sizes and colors
 // -----------------------------------------------
 @base_font_size: 64px;
@@ -21,6 +35,10 @@
   --r-heading2-size: @h2_font_size;
   --r-heading3-size: @h3_font_size;
   --r-heading4-size: @h4_font_size;
+  // overwrite fonts
+  --r-main-font: Palatino, Helvetica, sans-serif;
+  --r-heading-font: Palatino, Helvetica, sans-serif;
+  --r-heading-text-transform: normal;
 }
 
 /* ====================== */
