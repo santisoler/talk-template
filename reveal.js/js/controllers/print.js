@@ -22,7 +22,7 @@ export default class Print {
 		const slides = queryAll( this.Reveal.getRevealElement(), SLIDES_SELECTOR )
 
 		// Compute slide numbers now, before we start duplicating slides
-		const doingSlideNumbers = config.slideNumber && /all|print/i.test( config.showSlideNumber );
+		const injectPageNumbers = config.slideNumber && /all|print/i.test( config.showSlideNumber );
 
 		const slideSize = this.Reveal.getComputedSlideSize( window.innerWidth, window.innerHeight );
 
@@ -46,13 +46,18 @@ export default class Print {
 		document.body.style.width = pageWidth + 'px';
 		document.body.style.height = pageHeight + 'px';
 
+		const viewportElement = document.querySelector( '.reveal-viewport' );
+		let presentationBackground;
+		if( viewportElement ) {
+			const viewportStyles = window.getComputedStyle( viewportElement );
+			if( viewportStyles && viewportStyles.background ) {
+				presentationBackground = viewportStyles.background;
+			}
+		}
+
 		// Make sure stretch elements fit on slide
 		await new Promise( requestAnimationFrame );
 		this.Reveal.layoutSlideContents( slideWidth, slideHeight );
-
-		// Re-run the slide layout so that r-fit-text is applied based on
-		// the printed slide size
-		slides.forEach( slide => this.Reveal.slideContent.layout( slide ) );
 
 		// Batch scrollHeight access to prevent layout thrashing
 		await new Promise( requestAnimationFrame );
@@ -61,6 +66,7 @@ export default class Print {
 
 		const pages = [];
 		const pageContainer = slides[0].parentNode;
+		let slideNumber = 1;
 
 		// Slide and slide background layout
 		slides.forEach( function( slide, index ) {
@@ -90,12 +96,23 @@ export default class Print {
 
 				page.className = 'pdf-page';
 				page.style.height = ( ( pageHeight + config.pdfPageHeightOffset ) * numberOfPages ) + 'px';
+
+				// Copy the presentation-wide background to each individual
+				// page when printing
+				if( presentationBackground ) {
+					page.style.background = presentationBackground;
+				}
+
 				page.appendChild( slide );
 
 				// Position the slide inside of the page
 				slide.style.left = left + 'px';
 				slide.style.top = top + 'px';
 				slide.style.width = slideWidth + 'px';
+
+				// Re-run the slide layout so that r-fit-text is applied based on
+				// the printed slide size
+				this.Reveal.slideContent.layout( slide )
 
 				if( slide.slideBackgroundElement ) {
 					page.insertBefore( slide.slideBackgroundElement, slide );
@@ -130,13 +147,12 @@ export default class Print {
 
 				}
 
-				// Inject slide numbers if `slideNumbers` are enabled
-				if( doingSlideNumbers ) {
-					const slideNumber = index + 1;
+				// Inject page numbers if `slideNumbers` are enabled
+				if( injectPageNumbers ) {
 					const numberElement = document.createElement( 'div' );
 					numberElement.classList.add( 'slide-number' );
 					numberElement.classList.add( 'slide-number-pdf' );
-					numberElement.innerHTML = slideNumber;
+					numberElement.innerHTML = slideNumber++;
 					page.appendChild( numberElement );
 				}
 
@@ -150,7 +166,7 @@ export default class Print {
 
 					let previousFragmentStep;
 
-					fragmentGroups.forEach( function( fragments ) {
+					fragmentGroups.forEach( function( fragments, index ) {
 
 						// Remove 'current-fragment' from the previous group
 						if( previousFragmentStep ) {
@@ -166,6 +182,14 @@ export default class Print {
 
 						// Create a separate page for the current fragment state
 						const clonedPage = page.cloneNode( true );
+
+						// Inject unique page numbers for fragments
+						if( injectPageNumbers ) {
+							const numberElement = clonedPage.querySelector( '.slide-number-pdf' );
+							const fragmentNumber = index + 1;
+							numberElement.innerHTML += '.' + fragmentNumber;
+						}
+
 						pages.push( clonedPage );
 
 						previousFragmentStep = fragments;

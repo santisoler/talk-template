@@ -3,12 +3,18 @@
  */
 export default class Location {
 
+	// The minimum number of milliseconds that must pass between
+	// calls to history.replaceState
+	MAX_REPLACE_STATE_FREQUENCY = 1000
+
 	constructor( Reveal ) {
 
 		this.Reveal = Reveal;
 
 		// Delays updates to the URL due to a Chrome thumbnailer bug
 		this.writeURLTimeout = 0;
+
+		this.replaceStateTimestamp = 0;
 
 		this.onWindowHashChange = this.onWindowHashChange.bind( this );
 
@@ -96,9 +102,13 @@ export default class Location {
 		const currentIndices = this.Reveal.getIndices();
 		const newIndices = this.getIndicesFromHash();
 
-		if( newIndices && ( newIndices.h !== currentIndices.h || newIndices.v !== currentIndices.v || newIndices.f !== undefined ) ) {
-			this.Reveal.slide( newIndices.h, newIndices.v, newIndices.f );
+		if( newIndices ) {
+			if( ( newIndices.h !== currentIndices.h || newIndices.v !== currentIndices.v || newIndices.f !== undefined ) ) {
+					this.Reveal.slide( newIndices.h, newIndices.v, newIndices.f );
+			}
 		}
+		// If no new indices are available, we're trying to navigate to
+		// a slide hash that does not exist
 		else {
 			this.Reveal.slide( currentIndices.h || 0, currentIndices.v || 0 );
 		}
@@ -138,10 +148,10 @@ export default class Location {
 			else if( config.hash ) {
 				// If the hash is empty, don't add it to the URL
 				if( hash === '/' ) {
-					window.history.replaceState( null, null, window.location.pathname + window.location.search );
+					this.debouncedReplaceState( window.location.pathname + window.location.search );
 				}
 				else {
-					window.history.replaceState( null, null, '#' + hash );
+					this.debouncedReplaceState( '#' + hash );
 				}
 			}
 			// UPDATE: The below nuking of all hash changes breaks
@@ -155,6 +165,26 @@ export default class Location {
 			// 	window.history.replaceState( null, null, window.location.pathname + window.location.search );
 			// }
 
+		}
+
+	}
+
+	replaceState( url ) {
+
+		window.history.replaceState( null, null, url );
+		this.replaceStateTimestamp = Date.now();
+
+	}
+
+	debouncedReplaceState( url ) {
+
+		clearTimeout( this.replaceStateTimeout );
+
+		if( Date.now() - this.replaceStateTimestamp > this.MAX_REPLACE_STATE_FREQUENCY ) {
+			this.replaceState( url );
+		}
+		else {
+			this.replaceStateTimeout = setTimeout( () => this.replaceState( url ), this.MAX_REPLACE_STATE_FREQUENCY );
 		}
 
 	}
