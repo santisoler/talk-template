@@ -39,7 +39,13 @@ or
 conda install livereload -c conda-forge
 ```
 
-Use `make serve` to start a server at `http://localhost:8000`. The page will
+Then start a local webserver by running:
+
+```
+python serve.py
+```
+
+Open `http://localhost:8000` in your browser to see the slides. The page will
 automatically reload the page when you update any of the files in the
 repository.
 
