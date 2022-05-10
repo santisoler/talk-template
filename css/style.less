@@ -41,6 +41,10 @@
   --r-heading-text-transform: normal;
 }
 
+//
+// ##############################################################
+//
+
 /* ====================== */
 /* Configure reveal style */
 /* ====================== */
@@ -51,9 +55,48 @@
     list-style-type: none;
   }
 
-  // ---------------------
-  // Define custom classes
-  // ---------------------
+  // -------------------------------------------
+  // Define columns and position-related classes
+  // -------------------------------------------
+
+  // Columns divs must be included inside a container div
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+      width: 100%;
+    }
+  }
+
+  // Define a regular column
+  .column {
+    flex: 1;
+  }
+
+  // Define larger columns
+  .col-2 {
+    flex: 2;
+  }
+  .col-3 {
+    flex: 3;
+  }
+  .col-4 {
+    flex: 4;
+  }
+
+  // Centre the content for a slide.
+  // Put in a div that wraps the entire slide.
+  // Must have another empty div inside it as well.
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  // -------------
+  // Custom slides
+  // -------------
 
   .slide-title {
     a {
@@ -92,6 +135,10 @@
       }
     }
   }
+
+  // --------------
+  // Custom classes
+  // --------------
 
   // Class to put footnotes (like references, links, notes, etc.)
   .footnote {
