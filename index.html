@@ -65,7 +65,13 @@
     <!-- Configure Reveal.js -->
     <script>
       Reveal.initialize({
-        plugins: [RevealMarkdown, RevealMath, RevealHighlight],
+        // Use local version of katex
+        katex: {
+          local: "katex",
+        },
+        // Load plugins
+        plugins: [RevealMarkdown, RevealMath.KaTeX, RevealHighlight],
+        // Configure geometry of the slides
         width: 1920,
         height: 1080,
         margin: 0.1,

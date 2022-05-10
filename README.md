@@ -21,6 +21,8 @@ serve them even without internet connection.
   [less](https://lesscss.org/).
 - The `css/fontawesome` directory stores the
   [fontawesome](https://fontawesome.com/) icons.
+- The `katex` directory has the sources for [KaTeX](https://katex.org/), a math
+  typesetting library for the web.
 
 
 ## Serving the slides
