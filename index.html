@@ -19,14 +19,18 @@
     <!-- <link rel="shortcut icon" href="img/favicon.png"> -->
 
     <!-- FontAwsome icons -->
-    <link rel="stylesheet" href="pkg/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="css/fontawesome/css/all.css" />
 
     <!-- Reveal.js -->
-    <link rel="stylesheet" href="pkg/reveal.js/dist/reset.css" />
-    <link rel="stylesheet" href="pkg/reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="css/onedark.css" id="theme" />
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="css/nord.css" id="theme" />
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="atom-one-dark.css" id="highlight-theme" />
+    <link
+      rel="stylesheet"
+      href="css/highlight.js/nord.css"
+      id="highlight-theme"
+    />
   </head>
 
   <body>
@@ -34,7 +38,7 @@
     <div class="reveal">
       <div class="slides">
         <section
-          data-markdown="content.md"
+          data-markdown="slides-content.md"
           data-separator="^\n---\n"
           data-separator-vertical="^\n----\n"
           data-separator-notes="^Note:"
@@ -45,21 +49,18 @@
     </div>
 
     <!-- Less to compile the style sheet to plain CSS -->
-    <script src="pkg/less/less.min.js" type="text/javascript"></script>
+    <script src="less/less.min.js" type="text/javascript"></script>
 
     <!-- Import the Reveal.js Javascript code -->
-    <script src="pkg/reveal.js/dist/reveal.js" type="text/javascript"></script>
+    <script src="reveal.js/dist/reveal.js" type="text/javascript"></script>
     <!-- Code for the plugins (also need to include them in Reveal.initialize) -->
+    <script src="reveal.js/plugin/math/math.js" type="text/javascript"></script>
     <script
-      src="pkg/reveal.js/plugin/math/math.js"
+      src="reveal.js/plugin/markdown/markdown.js"
       type="text/javascript"
     ></script>
     <script
-      src="pkg/reveal.js/plugin/markdown/markdown.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="pkg/reveal.js/plugin/highlight/highlight.js"
+      src="reveal.js/plugin/highlight/highlight.js"
       type="text/javascript"
     ></script>
 
@@ -73,7 +74,7 @@
         // Vertical centering of slides
         center: true,
         // Transition style
-        transition: "slide", // none/fade/slide/convex/concave/zoom
+        transition: "none", // none/fade/slide/convex/concave/zoom
         // Transition speed
         transitionSpeed: "default", // default/fast/slow
         // Transition style for full page slide backgrounds
@@ -104,7 +105,7 @@
         // three strings [n1,delimiter,n2]. See #formatSlideNumber().
         slideNumber: "c/t",
         // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
+        // page or copying the URL will return you to the same slide
         hash: true,
         // Flags if we should monitor the hash and change slides accordingly
         respondToHashChanges: true,

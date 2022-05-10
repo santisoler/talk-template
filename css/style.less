@@ -1,17 +1,25 @@
-/* These fontsizes are the same ones defined in the onedark.css theme */
-/* The basefontsize represents the fontsize as the main font in onedark.css */
+/* These fontsizes are the same ones defined in the nord.css theme */
 @basefontsize: 1em;
-@fontsizeheading1: 2.5em;
-@fontsizeheading2: 1.6em;
-@fontsizeheading3: 1.3em;
+@fontsizeheading1: 1.9em;
+@fontsizeheading2: 1.5em;
+@fontsizeheading3: 1.1em;
 @fontsizeheading4: 1.0em;
 
-/* Define some extra onedark colors */
-@lightcolor: #dcdfe4;
-@greencolor: #98c379;
-@redcolor: #e06c75;
-@yellowcolor: #e5c07b;
-@bluecolor: #61afef;
+// Define Nord theme colors
+@black1: #2e3440;
+@black2: #3b4252;
+@black3: #434c5e;
+@black4: #4c566a;
+@white1: #d8dee9;
+@white2: #e5e9f0;
+@white3: #eceff4;
+@blue: #5e81ac;
+@blue1: #81a1c1;
+@red: #bf616a;
+@orange: #d08770;
+@yellow: #ebcb8b;
+@green: #a3be8c;
+@magenta: #b48ead;
 
 /* ---------------------- */
 /* Configure reveal style */
@@ -19,7 +27,7 @@
 
 .reveal {
   strong {
-    color: @greencolor;
+    color: @green;
   }
 
   /* Set list-style-type to none on fa-ul */
@@ -77,7 +85,7 @@
 
   .slide-title {
     a {
-      color: @lightcolor;
+      color: @white3;
     }
     h1 {
       font-size: @fontsizeheading1 * 0.9;

@@ -93,9 +93,9 @@ Second element
 ## Highlight current item on list
 
 <ol>
-<li class="fragment highlight-current-blue">First element</li>
-<li class="fragment highlight-current-blue">Second element</li>
-<li class="fragment highlight-current-blue">Third element</li>
+<li class="fragment highlight-current-green">First element</li>
+<li class="fragment highlight-current-green">Second element</li>
+<li class="fragment highlight-current-green">Third element</li>
 </ol>
 
 ---
@@ -110,7 +110,7 @@ https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black
 
 ---
 
-<!-- .slide: data-background-color="#eee" -->
+<!-- .slide: data-background-color="#eceff4" -->
 
 ## You can change the background color
 
@@ -121,6 +121,20 @@ https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-of-black
 <blockquote>
 This is a quote
 </blockquote>
+
+---
+
+## Add code
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = np.linspace(0, 10, 11)
+
+plt.plot(a, a ** 2)
+plt.show()
+```
 
 ---
 
@@ -156,8 +170,7 @@ This is a quote
 <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i>
 </p>
 
-El contenido de esta presentación está disponible bajo
-
+El contenido de esta presentación está disponible bajo <br>
 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
 ---

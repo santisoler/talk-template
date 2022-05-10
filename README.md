@@ -8,15 +8,21 @@ cool stuff, like columns, fade-in animations, footnotes and more.
 
 The template contains the following files and directories:
 
-- `content.md`: Markdown file with the content of the slides.
-- `style.less`: define custom CSS classes using [Less](http://lesscss.org/).
+- `slides-content.md`: Markdown file with the content of the slides.
+- `css/`: where all custom CSS files live:
+  - `css/style.less`: define custom CSS classes using [Less](http://lesscss.org/).
+  - `css/nord.css`: reveal.js theme based on the [Nord Theme](https://www.nordtheme.com/).
 - `index.html`: HTML file that can be served to show the slides, also contains
   the configurations for reveal.js.
 
-The `pkg` directory contains all dependencies to run the website: reveal.js,
-fontawesome and less. Having these files in the same repository allows to
-serve the slides completely offline.
+The repo hosts all their dependencies to run the website:
+- reveal.js
+- less
+- [fontawesome](https://fontawesome.com/)
+- [nord-highlightjs](https://github.com/arcticicestudio/nord-highlightjs)
 
+Having these files in the same repository allows to
+serve the slides completely offline.
 
 ## Serving the slides
 
@@ -44,5 +50,6 @@ This template is based on the
 
 ## License
 
-The template (`content.md`, `index.html`, and `style.less`) is licensed under
-a Creative Commons Attribution 4.0 International License.
+The template (`slides-content.md`, `index.html`, `css/style.less` and
+`css/nord.css`) is licensed under a Creative Commons Attribution 4.0
+International License.
