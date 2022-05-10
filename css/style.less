@@ -1,60 +1,65 @@
-/* These fontsizes are the same ones defined in the onedark.css theme */
-/* The basefontsize represents the fontsize as the main font in onedark.css */
-@basefontsize: 1em;
-@fontsizeheading1: 2.5em;
-@fontsizeheading2: 1.6em;
-@fontsizeheading3: 1.3em;
-@fontsizeheading4: 1.0em;
+// Load own fonts
+// --------------
+@font-face {
+  font-family: Palatino;
+  src: url("./fonts/Palatino.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: Palatino;
+  src: url("./fonts/Palatino-bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
 
-/* Define some extra onedark colors */
-@lightcolor: #dcdfe4;
-@greencolor: #98c379;
-@redcolor: #e06c75;
-@yellowcolor: #e5c07b;
-@bluecolor: #61afef;
+// Define some variables for font sizes and colors
+// -----------------------------------------------
+@base_font_size: 64px;
+@h1_font_size: 2em;
+@h2_font_size: 1.5em;
+@h3_font_size: 1.2em;
+@h4_font_size: 1em;
 
-/* ---------------------- */
+@main_color: var(--r-main-color);
+@background_color: var(--r-background-color);
+@link_hover_color: var(--r-link-color-hover);
+
+// Override default variables of Reveal.js style
+// ---------------------------------------------
+:root {
+  // Don't uppercase headings
+  --r-heading-text-transform: none;
+  // overwrite font sizes
+  --r-main-font-size: @base_font_size;
+  --r-heading1-size: @h1_font_size;
+  --r-heading2-size: @h2_font_size;
+  --r-heading3-size: @h3_font_size;
+  --r-heading4-size: @h4_font_size;
+  // overwrite fonts
+  --r-main-font: Palatino, Helvetica, sans-serif;
+  --r-heading-font: Palatino, Helvetica, sans-serif;
+  --r-heading-text-transform: normal;
+}
+
+//
+// ##############################################################
+//
+
+/* ====================== */
 /* Configure reveal style */
-/* ---------------------- */
+/* ====================== */
 
 .reveal {
-  strong {
-    color: @greencolor;
-  }
-
-  /* Set list-style-type to none on fa-ul */
+  // Set list-style-type to none on fa-ul
   .fa-ul {
     list-style-type: none;
   }
 
-  .print-pdf {
-    section.present {
-      height: 100%;
-    }
-  }
+  // -------------------------------------------
+  // Define columns and position-related classes
+  // -------------------------------------------
 
-  // Centre the content for a slide. Put in a div that wraps the entire
-  // slide. Must have another empty div inside it as well.
-  .centered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  // Class to put bottom text, like references, links, notes, etc.
-  .bottom {
-    p {
-      font-size: @basefontsize * 0.85 !important;
-      text-align: left;
-      align-self: flex-end;
-      margin: 0;
-    }
-  }
-
-  // Displaying two columns. Wrap them in the container. Use either
-  // col-left/right for 2 equal columns or col-large col-small for one larger
-  // column.
+  // Columns divs must be included inside a container div
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -62,9 +67,13 @@
       width: 100%;
     }
   }
+
+  // Define a regular column
   .column {
     flex: 1;
   }
+
+  // Define larger columns
   .col-2 {
     flex: 2;
   }
@@ -75,23 +84,27 @@
     flex: 4;
   }
 
+  // Centre the content for a slide.
+  // Put in a div that wraps the entire slide.
+  // Must have another empty div inside it as well.
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  // -------------
+  // Custom slides
+  // -------------
+
   .slide-title {
     a {
-      color: @lightcolor;
+      color: @main_color;
     }
-    h1 {
-      font-size: @fontsizeheading1 * 0.9;
-      line-height: @fontsizeheading1 * 0.4;
-      margin-bottom: @fontsizeheading1 * 0.3;
-    }
-    h2 {
-      font-size: @fontsizeheading2 * 0.9;
-      text-transform: none;
-      font-weight: normal;
-      margin-bottom: @fontsizeheading1 * 0.3;
-    }
-    p {
-      font-size: @basefontsize * 0.8;
+
+    a:hover {
+      color: @link_hover_color;
     }
 
     .logos {
@@ -111,12 +124,29 @@
     }
   }
 
+  // Custom slide for the license text
   .slide-license {
     .license-icons {
-      font-size: @basefontsize * 2;
+      font-size: @h2_font_size;
       i {
-        margin-right: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: @h2_font_size;
       }
+    }
+  }
+
+  // --------------
+  // Custom classes
+  // --------------
+
+  // Class to put footnotes (like references, links, notes, etc.)
+  .footnote {
+    p {
+      font-size: 0.5em !important;
+      text-align: left;
+      align-self: flex-end;
+      margin: 0;
     }
   }
 }

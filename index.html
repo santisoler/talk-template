@@ -12,21 +12,22 @@
     <title>TITLE</title>
     <!-- ============================================================ -->
 
-    <!-- Custom CSS for the presentation -->
-    <link rel="stylesheet/less" type="text/css" href="css/style.less" />
-
     <!-- Set a favicon icon (usually the lab logo) -->
     <!-- <link rel="shortcut icon" href="img/favicon.png"> -->
 
     <!-- FontAwsome icons -->
-    <link rel="stylesheet" href="pkg/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="css/fontawesome/css/all.css" />
 
     <!-- Reveal.js -->
-    <link rel="stylesheet" href="pkg/reveal.js/dist/reset.css" />
-    <link rel="stylesheet" href="pkg/reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="css/onedark.css" id="theme" />
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="atom-one-dark.css" id="highlight-theme" />
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/white.css" id="theme" />
+
+    <!-- Use nord theme for highlighting code -->
+    <link rel="stylesheet" href="css/highlight/nord.css" />
+
+    <!-- Custom CSS for the presentation -->
+    <link rel="stylesheet/less" type="text/css" href="css/style.less" />
   </head>
 
   <body>
@@ -34,7 +35,7 @@
     <div class="reveal">
       <div class="slides">
         <section
-          data-markdown="content.md"
+          data-markdown="slides.md"
           data-separator="^\n---\n"
           data-separator-vertical="^\n----\n"
           data-separator-notes="^Note:"
@@ -45,35 +46,38 @@
     </div>
 
     <!-- Less to compile the style sheet to plain CSS -->
-    <script src="pkg/less/less.min.js" type="text/javascript"></script>
+    <script src="less/less.min.js" type="text/javascript"></script>
 
     <!-- Import the Reveal.js Javascript code -->
-    <script src="pkg/reveal.js/dist/reveal.js" type="text/javascript"></script>
+    <script src="reveal.js/dist/reveal.js" type="text/javascript"></script>
     <!-- Code for the plugins (also need to include them in Reveal.initialize) -->
+    <script src="reveal.js/plugin/math/math.js" type="text/javascript"></script>
     <script
-      src="pkg/reveal.js/plugin/math/math.js"
+      src="reveal.js/plugin/markdown/markdown.js"
       type="text/javascript"
     ></script>
     <script
-      src="pkg/reveal.js/plugin/markdown/markdown.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="pkg/reveal.js/plugin/highlight/highlight.js"
+      src="reveal.js/plugin/highlight/highlight.js"
       type="text/javascript"
     ></script>
 
     <!-- Configure Reveal.js -->
     <script>
       Reveal.initialize({
-        plugins: [RevealMarkdown, RevealMath, RevealHighlight],
+        // Use local version of katex
+        katex: {
+          local: "katex",
+        },
+        // Load plugins
+        plugins: [RevealMarkdown, RevealMath.KaTeX, RevealHighlight],
+        // Configure geometry of the slides
         width: 1920,
         height: 1080,
         margin: 0.1,
         // Vertical centering of slides
         center: true,
         // Transition style
-        transition: "slide", // none/fade/slide/convex/concave/zoom
+        transition: "none", // none/fade/slide/convex/concave/zoom
         // Transition speed
         transitionSpeed: "default", // default/fast/slow
         // Transition style for full page slide backgrounds
@@ -89,7 +93,7 @@
         // or "visible"
         controlsBackArrows: "faded",
         // Display a presentation progress bar
-        progress: true,
+        progress: false,
         // Display the page number of the current slide
         // - true:    Show slide number
         // - false:   Hide slide number
@@ -102,7 +106,7 @@
         // number for the current slide. The function should take in a slide
         // object and return an array with one string [slideNumber] or
         // three strings [n1,delimiter,n2]. See #formatSlideNumber().
-        slideNumber: "c/t",
+        slideNumber: "",
         // Add the current slide number to the URL hash so that reloading the
         // page/copying the URL will return you to the same slide
         hash: true,
