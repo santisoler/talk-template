@@ -1,16 +1,6 @@
-// Load own fonts
-// --------------
-@font-face {
-  font-family: Palatino;
-  src: url("./fonts/Palatino.ttf") format("truetype");
-  font-style: normal;
-}
-@font-face {
-  font-family: Palatino;
-  src: url("./fonts/Palatino-bold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
+/* ===================== */
+/* Global configurations */
+/* ===================== */
 
 // Define some variables for font sizes and colors
 // -----------------------------------------------
@@ -28,65 +18,53 @@
 // ---------------------------------------------
 :root {
   // Don't uppercase headings
-  --r-heading-text-transform: none;
+  --r-heading-text-transform: normal;
   // overwrite font sizes
   --r-main-font-size: @base_font_size;
   --r-heading1-size: @h1_font_size;
   --r-heading2-size: @h2_font_size;
   --r-heading3-size: @h3_font_size;
   --r-heading4-size: @h4_font_size;
-  // overwrite fonts
-  --r-main-font: Palatino, Helvetica, sans-serif;
-  --r-heading-font: Palatino, Helvetica, sans-serif;
-  --r-heading-text-transform: normal;
 }
-
-//
-// ##############################################################
-//
 
 /* ====================== */
 /* Configure reveal style */
 /* ====================== */
 
 .reveal {
-  // Set list-style-type to none on fa-ul
-  .fa-ul {
-    list-style-type: none;
+  // --------------------------------
+  // Override some default CSS styles
+  // --------------------------------
+  ul,
+  ol {
+    margin-left: 0;
   }
 
-  // -------------------------------------------
-  // Define columns and position-related classes
-  // -------------------------------------------
+  pre code {
+    max-height: 1080px; // increase max height of code blocks
+  }
 
-  // Columns divs must be included inside a container div
-  .container {
+  blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    width: 95%;
+  }
+
+  // ----------------------------------------------------
+  // Define custom flexbox classes (similar to bootstrap)
+  // ----------------------------------------------------
+  .d-flex {
     display: flex;
-    flex-wrap: wrap;
-    img {
-      width: 100%;
-    }
   }
 
-  // Define a regular column
-  .column {
-    flex: 1;
+  .align-center {
+    align-items: center;
   }
 
-  // Define larger columns
-  .col-2 {
-    flex: 2;
-  }
-  .col-3 {
-    flex: 3;
-  }
-  .col-4 {
-    flex: 4;
+  .justify-center {
+    justify-content: center;
   }
 
-  // Centre the content for a slide.
-  // Put in a div that wraps the entire slide.
-  // Must have another empty div inside it as well.
   .centered {
     display: flex;
     align-items: center;
@@ -94,59 +72,18 @@
     height: 100%;
   }
 
-  // -------------
-  // Custom slides
-  // -------------
-
-  .slide-title {
-    a {
-      color: @main_color;
-    }
-
-    a:hover {
-      color: @link_hover_color;
-    }
-
-    .logos {
-      margin: 0 2%;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 15%;
-
-      .logo {
-        flex: 1;
-      }
-
-      img {
-        max-height: 100px;
-        margin: 0 auto;
-      }
-    }
+  // ---------------------------
+  // Define other custom classes
+  // ---------------------------
+  .orange {
+    color: #c44500;
   }
 
-  // Custom slide for the license text
-  .slide-license {
-    .license-icons {
-      font-size: @h2_font_size;
-      i {
-        margin-left: 10px;
-        margin-right: 10px;
-        font-size: @h2_font_size;
-      }
-    }
+  .green {
+    color: #71ad00;
   }
 
-  // --------------
-  // Custom classes
-  // --------------
-
-  // Class to put footnotes (like references, links, notes, etc.)
-  .footnote {
-    p {
-      font-size: 0.5em !important;
-      text-align: left;
-      align-self: flex-end;
-      margin: 0;
-    }
+  .red {
+    color: #ad0018;
   }
 }
